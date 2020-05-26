@@ -18,4 +18,10 @@ const add = async newScheme => {
   return findById(id);
 };
 
-module.exports = { find, findById, findSteps, add };
+const update = async (changes, id) => {
+  await db("schemes").update(changes).where({ id });
+
+  return findById(id);
+};
+
+module.exports = { find, findById, findSteps, add, update };
