@@ -66,5 +66,5 @@ typings/
 # Workspace database folder
 $(workspaceFolder)
 
-# Database query file
+# Database query test file
 nothwind Session.sql
