@@ -1,5 +1,6 @@
 SELECT
-  ProductName,
-  CategoryName
-FROM Product as P
-JOIN Category as C ON P.CategoryId = C.id;
+  Id,
+  ShipName
+FROM [ORDER]
+WHERE
+  OrderDate < "2012-08-09"
