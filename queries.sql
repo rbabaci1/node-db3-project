@@ -22,3 +22,10 @@ WHERE
 ORDER BY
   ProductName;
 -- Display the OrderID, Customer's Company Name and the employee's LastName for every order. All columns should be labeled clearly. Displays 16,789 records.
+SELECT
+  O.Id as "Order Id",
+  CompanyName as "Customer's Company Name",
+  LastName as "Employee's Last Name"
+FROM [Order] as O
+JOIN Customer as C ON O.CustomerId = C.Id
+JOIN Employee as E ON O.EmployeeId = E.Id;
