@@ -62,15 +62,15 @@ router.post("/", (req, res) => {
     });
 });
 
-router.post("/:id/steps", (req, res) => {
+router.post("/:id/addStep", (req, res) => {
   const stepData = req.body;
   const { id } = req.params;
 
   Schemes.findById(id)
     .then(scheme => {
       if (scheme) {
-        Schemes.addStep(stepData, id).then(step => {
-          res.status(201).json(step);
+        Schemes.addStep(stepData, id).then(addedStep => {
+          res.status(201).json({ addedStep });
         });
       } else {
         res
