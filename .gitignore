@@ -63,8 +63,3 @@ typings/
 # VSCode settings
 .vscode/
 
-# Workspace database folder
-$(workspaceFolder)
-
-# Database query test file
-nothwind Session.sql
