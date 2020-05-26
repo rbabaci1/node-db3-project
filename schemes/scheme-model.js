@@ -32,4 +32,10 @@ const remove = async id => {
   return new Promise(resolve => resolve(toRemove));
 };
 
-module.exports = { find, findById, findSteps, add, update, remove };
+const addStep = async (step, scheme_id) => {
+  const [id] = await db("steps").insert({ scheme_id, ...step });
+
+  return db("steps").where({ id });
+};
+
+module.exports = { find, findById, findSteps, add, update, remove, addStep };
