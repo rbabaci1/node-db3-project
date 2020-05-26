@@ -1,6 +1,9 @@
 SELECT
-  Id,
-  ShipName
-FROM [ORDER]
+  ProductName,
+  Quantity
+FROM [OrderDetail] as OD
+JOIN Product as P ON OD.ProductId = P.Id
 WHERE
-  OrderDate < "2012-08-09"
+  OrderId = 10251
+ORDER BY
+  ProductName;
