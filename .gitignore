@@ -62,3 +62,9 @@ typings/
 
 # VSCode settings
 .vscode/
+
+# Workspace database folder
+$(workspaceFolder)
+
+# Database query file
+nothwind Session.sql
