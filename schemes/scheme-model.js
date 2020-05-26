@@ -24,4 +24,12 @@ const update = async (changes, id) => {
   return findById(id);
 };
 
-module.exports = { find, findById, findSteps, add, update };
+const remove = async id => {
+  const toRemove = await findById(id);
+
+  await db("schemes").del().where({ id });
+
+  return new Promise(resolve => resolve(toRemove));
+};
+
+module.exports = { find, findById, findSteps, add, update, remove };
