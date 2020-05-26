@@ -1,7 +1,9 @@
 const db = require("../data/dbConfig");
 
 const find = () => db("schemes");
+
 const findById = id => db("schemes").where({ id }).first();
+
 const findSteps = scheme_id => {
   return db("steps as st")
     .select("st.id", "sc.scheme_name", "st.step_number", "st.instructions")
@@ -10,4 +12,10 @@ const findSteps = scheme_id => {
     .orderBy("step_number");
 };
 
-module.exports = { find, findById, findSteps };
+const add = async newScheme => {
+  const [id] = await db("schemes").insert(newScheme);
+
+  return findById(id);
+};
+
+module.exports = { find, findById, findSteps, add };
