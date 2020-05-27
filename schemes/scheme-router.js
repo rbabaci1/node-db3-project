@@ -9,7 +9,7 @@ router.get("/", (req, res) => {
     .then(schemes => {
       res.json(schemes);
     })
-    .catch(err => {
+    .catch(() => {
       res.status(500).json({ message: "Failed to get schemes" });
     });
 });
@@ -27,7 +27,7 @@ router.get("/:id", (req, res) => {
           .json({ message: "Could not find scheme with given id." });
       }
     })
-    .catch(err => {
+    .catch(() => {
       res.status(500).json({ message: "Failed to get schemes" });
     });
 });
@@ -45,7 +45,7 @@ router.get("/:id/steps", (req, res) => {
           .json({ message: "Could not find steps for given scheme" });
       }
     })
-    .catch(err => {
+    .catch(() => {
       res.status(500).json({ message: "Failed to get steps" });
     });
 });
@@ -57,7 +57,7 @@ router.post("/", (req, res) => {
     .then(scheme => {
       res.status(201).json(scheme);
     })
-    .catch(err => {
+    .catch(() => {
       res.status(500).json({ message: "Failed to create new scheme" });
     });
 });
@@ -78,7 +78,7 @@ router.post("/:id/addStep", (req, res) => {
           .json({ message: "Could not find scheme with given id." });
       }
     })
-    .catch(err => {
+    .catch(() => {
       res.status(500).json({ message: "Failed to create new step" });
     });
 });
@@ -99,7 +99,7 @@ router.put("/:id", (req, res) => {
           .json({ message: "Could not find scheme with given id" });
       }
     })
-    .catch(err => {
+    .catch(() => {
       res.status(500).json({ message: "Failed to update scheme" });
     });
 });
@@ -117,7 +117,7 @@ router.delete("/:id", (req, res) => {
           .json({ message: "Could not find scheme with given id" });
       }
     })
-    .catch(err => {
+    .catch(() => {
       res.status(500).json({ message: "Failed to delete scheme" });
     });
 });
